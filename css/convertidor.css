@@ -1,0 +1,28 @@
+html {
+  height: 100%;
+}
+body {
+ background: linear-gradient(white 25% , green);
+ height: 100%;
+}
+
+
+#cotiPrecio {
+	margin-top: 30px;
+	padding: 10 px;
+	font-size: 30px;}
+#cotiFecha{
+	margin-top: 30px;
+	padding: 10 px;
+	font-size: 30px;
+}
+.row{
+	margin-top: 35px;
+	padding: 10 px;
+	font-size: 20px;
+}
+
+#mensajeFinal{
+	margin-top: 30px;
+	padding: 10 px;
+	font-size: 30px;}
