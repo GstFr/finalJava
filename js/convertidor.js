@@ -18,6 +18,13 @@ fetch(url)
 
     let compraDolar = divisas[0].valor;
     let ventaDolar = divisas[1].valor;
+
+    compra(importe, compraDolar);
+    venta(importe, ventaDolar);
+    compraOnline(importe, compraDolar);
+    ventaOnline(importe, ventaDolar);
+    inicioLeyenda();
+    
     let cotizacion = document.getElementById("cotiPrecio");
     cotizacion.innerText =
       "Pagamos " +
@@ -25,29 +32,6 @@ fetch(url)
       " por dolar y los vendemos a  " +
       ventaDolar +
       " ";
-
-    function compra(importe, compraDolar) {
-      let totalCompra = importe * compraDolar;
-
-      mensaje.innerText = "Debes abonar $ " + totalCompra + "  ";
-    }
-    function venta(importe, ventaDolar) {
-      let totalVenta = importe * ventaDolar;
-
-      mensaje.innerText = "Recibiras $ " + totalVenta + " ";
-    }
-
-    function compraOnline(importe, compraDolar) {
-      let totalCompraOnline = importe * compraDolar * 1.05;
-
-      mensaje.innerText = "Debes abonar $ " + totalCompraOnline + " ";
-    }
-
-    function ventaOnline(importe, ventaDolar) {
-      let totalVentaOnline = (importe * ventaDolar) / 1.05;
-
-      mensaje.innerText = "Recibiras $ " + totalVentaOnline + " ";
-    }
 
     boton.addEventListener("click", function () {
       let importe = document.getElementById("importe").value;
@@ -80,6 +64,31 @@ const datos = (buy, sell) => {
   divisas.push(new Divisa("dolarVenta", sell));
 };
 
+const compra = (importe, compraDolar) => {
+  let totalCompra = importe * compraDolar;
+
+  mensaje.innerText = "Debes abonar $ " + totalCompra + "  ";
+};
+const venta = (importe, ventaDolar) => {
+  let totalVenta = importe * ventaDolar;
+
+  mensaje.innerText = "Recibiras $ " + totalVenta + " ";
+};
+
+const compraOnline = (importe, compraDolar) => {
+  let totalCompraOnline = importe * compraDolar * 1.05;
+
+  mensaje.innerText = "Debes abonar $ " + totalCompraOnline + " ";
+};
+
+const ventaOnline = (importe, ventaDolar) => {
+  let totalVentaOnline = (importe * ventaDolar) / 1.05;
+
+  mensaje.innerText = "Recibiras $ " + totalVentaOnline + " ";
+};
+const inicioLeyenda = () => {
+  mensaje.innerText = null;
+};
 class Divisa {
   constructor(nombre, valor) {
     this.nombre = nombre;
